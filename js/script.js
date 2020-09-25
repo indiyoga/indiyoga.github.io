@@ -1,4 +1,4 @@
-// это команда, пишется чтобы какой- либо дальнейший скрипт выполнялся только после полной загрузки страницы
+// эта команда, пишется чтобы какой- либо дальнейший скрипт выполнялся только после полной загрузки страницы
 // window.addEventListener ('load')
 
 // но если вся страница загружена а какая- нибудь картинка большая и грузится очень долго
@@ -48,66 +48,67 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 
      // =================Timer ======================
-    //  изначально в HTML в строках 107-114 написана статичная дата
-    // надо сделать dedline - конечная точка - установить больше сегодняшней даты
-     let deadline = '2020-11-21'; // КОНЕЦ АКЦИИ
-    // превращаем разницу между датами а милисекнды, разбиваем это на секунды, минуты и часы через остатки от деления
-    function getTimeRemaining(endtime) {
-        let t = Date.parse(endtime) - Date.parse(new Date()),
-        seconds = Math.floor((t/1000) % 60),
-        minutes = Math.floor((t/1000/60) % 60),
-        hours = Math.floor((t/(1000*60*60)));
-//  чтобы получит кол-во дней пишем hours = Math.floor((t/1000/60/60) % 24), days = Math.floor((t*1000*60*60) % 24)
-// возвращаем объекты в виде переменных
+     function getTimeRemaining(endtime) {
+        var t = Date.parse(endtime) - Date.parse(new Date());
+        var seconds = Math.floor((t / 1000) % 60);
+        var minutes = Math.floor((t / 1000 / 60) % 60);
+        var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+        var days = Math.floor(t / (1000 * 60 * 60 * 24));
         return {
-             'total' : t,
-             'hours' : hours,
-             'minutes' : minutes,
-             'seconds' : seconds
-         };
-    }
-//  подставляем наши переменные прямо в верстку HTML, можно сделать несколько переменных и несколько таймеров
-     function setClock(id, endtime) {
-         let timer = document.getElementById(id),
-             hours = timer.querySelector('.hours'), /* из верстки id= "timer" */
-             minutes = timer.querySelector('.minutes'),
-             seconds = timer.querySelector('.seconds'),
-             timeInterval = setInterval(updateClock, 1000); /*  каждую 1000 млсек обновление*/
-    // функция updateClock вызывается каждую секунду до упора и секунд и минут будет меняться
+          total: t,
+          days: days,
+          hours: hours,
+          minutes: minutes,
+          seconds: seconds
+        };
+      }
+      
+      function initializeClock(id, endtime) {
+        var clock = document.getElementById(id);
+        var daysSpan = clock.querySelector(".days");
+        var hoursSpan = clock.querySelector(".hours");
+        var minutesSpan = clock.querySelector(".minutes");
+        var secondsSpan = clock.querySelector(".seconds");
+      
         function updateClock() {
-            let t = getTimeRemaining(endtime);
-
-     //  этого пока нет
-        function addZero(num) {
-                    if(num <= 9) {
-                        return '0' + num;
-                    } else return num;
-                }
-
-    hours.textContent = addZero(t.hours);
-    minutes.textContent = addZero(t.minutes);
-    seconds.textContent = addZero(t.seconds);
-
-    // hours.textContent = t.hours;
-    // minutes.textContent = t.minutes;
-    // seconds.textContent = t.seconds;
-
-            if (t.total <= 0) {        /* останавливаем таймер */
-                clearInterval(timeInterval);
-                hours.textContent = '00';
-                minutes.textContent = '00';
-                seconds.textContent = '00';
-            }
+          var t = getTimeRemaining(endtime);
+      
+          if (t.total <= 0) {
+            clearInterval(timeinterval);
+            var deadline = '2020-11-24'
+              
+      
+          //   new Date(Date.parse(new Date()) + 1600 * 1000);
+            initializeClock('countdown', deadline);
+            
+          }
+      
+          document.getElementById('countitle').innerHTML = "до конца акции осталось:"; 
+      
+          daysSpan.innerHTML = t.days;
+          hoursSpan.innerHTML = ("0" + t.hours).slice(-2);
+          minutesSpan.innerHTML = ("0" + t.minutes).slice(-2);
+          secondsSpan.innerHTML = ("0" + t.seconds).slice(-2);
         }
+      
+        
+        updateClock();
+        var timeinterval = setInterval(updateClock, 1000);
+      }
+      
+      var deadline = 0;
+      // new Date(Date.parse(new Date()) + 0 * 1000);
+      
+      initializeClock("countdown", deadline);
 
-    }
 
-     setClock('timer', deadline);
+
+
 
     // =======================modal window======================
-    // HTML 211 строка overlay -описывает модальное окно, надо его вызвать 
-    // через класс more, описанный в кнопке "Узнать больше" HTML строка 115
-    // и через кнопку закрытия popup-close HTML строка 213
+    // HTML  строка overlay -описывает модальное окно, надо его вызвать 
+    // через класс more, описанный в кнопке "Узнать больше" HTML 
+    // и через кнопку закрытия popup-close HTML 
 
     let more = document.querySelector('.more'),
         dbtn = document.querySelector('.description-btn'),/** */

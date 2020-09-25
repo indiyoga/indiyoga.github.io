@@ -62,10 +62,12 @@ a:active {
   text-decoration: none;
   color: inherit;
 }
+/* =================================================================================== */
 header {
   width: 100%;
   height: 60px;
-  position: fixed;
+  /* фиксируем верхнее меню */
+  /* position: fixed; */
   top: 0;
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 10;
@@ -107,38 +109,44 @@ header ul li:before {
   -webkit-transition: 0.4s;
           transition: 0.4s;
 }
-.main {
-  height: 650px;
+/* ========================first screen=========================== */
+
+ .main {
+  height: 750px;
   width: 100%;
-  background: url(../img/bg.jpg) center no-repeat;
+  background: url(../img/bg1.jpg) center no-repeat;
   background-size: cover;
 }
-.main-block {
-  width: 750px;
-  min-height: 300px;
+
+.main .container {
+  display: inline-block;
+  width: 700px;
+  /* position: relative; */
+  margin-top: 20px;
+  margin-left: 5%; 
   border: 6px solid #c78030;
-  background-color: rgba(0, 0, 0, 0.4);
-  margin: 0 auto;
-  padding: 40px;
-  margin-top: 180px;
+  background-color: rgba(0, 0, 0, 0.6);
   text-align: center;
 }
+
 .main-block-link {
-  color: #fff;
+  margin-top: 30px;
+  text-align: center;
+  color: #50cf15;
   font-size: 22px;
   font-weight: bold;
 }
 .main-block-link:after {
   content: '';
   display: block;
-  width: 10%;
+  width: 15%;
   height: 3px;
-  background-color: #fff;
+  background-color:#c78030;
   margin: 0 auto;
   margin-top: 2px;
 }
 .main-block-title {
-  color: #fff;
+  color: #f39a26;
   text-transform: uppercase;
   font-size: 52px;
   margin-top: 35px;
@@ -148,8 +156,11 @@ header ul li:before {
   text-transform: uppercase;
   font-size: 22px;
   margin-top: 35px;
+  margin-bottom: 50px;
   font-weight: bold;
-}
+} 
+
+/* ===========================background========================== */
 .content {
   width: 100%;
   min-height: 3200px;
@@ -215,7 +226,7 @@ header ul li:before {
   content: '';
   display: block;
   width: 20%;
-  height: 3px;
+  height: 1px;
   background-color: #c78030;
   margin-top: 4px;
 }
@@ -279,7 +290,24 @@ header ul li:before {
   display: -ms-flexbox;
   display: flex;
 }
+
+.content .labeltimes {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+
+  margin-top: 30px;
+  margin-left: 29%;
+  width: 540px;
+  font-size: 30px;
+  color: #fff;
+  /* border: 1px solid #fff; */
+  justify-content: space-between;
+}
+/* =========================Timer============================== */
 .content .timer {
+  /* text-align: left; */
   margin-top: 150px;
   text-align: center;
 }
@@ -287,25 +315,54 @@ header ul li:before {
   font-size: 36px;
   color: #c78030;
 }
-.content .timer-action {
-  font-size: 24px;
-  color: #fff;
-  margin-top: 40px;
-}
-.content .timer-numbers {
-  margin-top: 40px;
-  font-size: 90px;
-  color: #c78030;
-}
-.content .timer-numbers:after {
+.content .timer-title:after {
   content: '';
+  margin-left: 280px;
   display: block;
-  width: 20%;
+  width: 10%;
   height: 1px;
   background-color: #c78030;
-  margin: 0 auto;
   margin-top: 4px;
 }
+
+
+.countdown-title {
+  color: #c78030;
+  font-weight: 100;
+  font-size: 40px;
+  margin: 40px 0px 20px;
+}
+
+.countdown {
+  font-family: sans-serif;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: 100;
+  text-align: center;
+  font-size: 30px;
+}
+
+.countdown-number {
+  padding: 10px;
+  border-radius: 3px;
+  background: #c78030;
+  display: inline-block;
+}
+
+.countdown-time {
+  padding: 15px;
+  border-radius: 3px;
+  background: #191822;
+  display: inline-block;
+}
+
+.countdown-text {
+  display: block;
+  padding-top: 5px;
+  font-size: 16px;
+}
+
+/* =====================Slider================== */
 .content .slider {
   margin-top: 150px;
   position: relative;
@@ -313,6 +370,7 @@ header ul li:before {
 .content .slider-title {
   font-size: 32px;
   color: #c78030;
+  text-align: left;
   margin-left: 130px;
 }
 .content .slider-title:after {
@@ -430,9 +488,11 @@ header ul li:before {
   width: 18px;
 }
 .content .counter {
+  text-align: left;
   margin-top: 150px
   /* Для Firefox */
 }
+/* ===================================Расчет стоимости========================================== */
 .content .counter-title {
   font-size: 32px;
   color: #c78030;
@@ -553,7 +613,9 @@ p {
 .content .more:hover {
   box-shadow: 0 0 10px #c78030;
 }
+/* =======================Контакты=========================== */
 .content .contact {
+  text-align: left;
   width: 86%;
   height: 400px;
   display: -webkit-box;
@@ -643,14 +705,14 @@ p {
   margin-left: 110px;
 }
 .content footer .social .social-block {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   border: 1px solid rgba(199, 128, 48, 0.5);
   margin-right: 15px;
 
 }
 .content footer .social .social-block:hover {
-  box-shadow: 0 0 10px #c78030;
+  box-shadow: 0 0 10px c78030
 }
 .content footer .social .social-block a img {
   width: 50%;
@@ -658,11 +720,27 @@ p {
   margin: 0 auto;
   margin-top: 17px;
 }
+/* ===========================Copyrirgh========================== */
+.copy_title {
+  display: block;
+  margin: 0px auto;
+  width: 85%;
+  color: #c78030;
+  text-align: center;
+
+  border-top: 2px solid #6e6363;
+}
+h6 {
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 100;
+}
+/* ==============================Overlay============================= */
 .overlay {
   position: fixed;
   display: none;
   top: 0;
-  width: 100%;
+  width: 300%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 3;
@@ -767,3 +845,15 @@ p {
 .overlay .popup-form__btn:hover {
   box-shadow: 0 0 10px #c78030;
 }
+/* ============================button Up=================== */
+.scrollup {
+  width:100px;
+  height:154px;
+  opacity:0.8;
+  position:fixed;
+  bottom:20px;
+  right:10px;
+  display:none;
+  text-indent:-9999px;
+  background: url('/icons/up.png') no-repeat;
+  }

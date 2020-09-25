@@ -5,13 +5,33 @@
 	<title>Yoga</title>
 	
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700&amp;subset=cyrillic-ext" rel="stylesheet">
-	<!-- <link rel="stylesheet" href="css/bootstrap-grid.min.css"> -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.5.0/nouislider.min.js"></script>
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.5.0/nouislider.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.5.0/nouislider.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/style.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> 
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+		 
+		$(window).scroll(function(){
+			// высота экрана для появления иконки вверх
+		if ($(this).scrollTop() > 1200) {
+		$('.scrollup').fadeIn();
+		} else {
+		$('.scrollup').fadeOut();
+		}
+		});
+		 
+		$('.scrollup').click(function(){
+		$("html, body").animate({ scrollTop: 0 }, 600);
+		return false;
+		});
+		 
+		});
+		</script>
+		<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<!-- ======================================================== -->
+<!-- ===============================top menu========================= -->
 	<header>
 		<div class="container">
 			<nav>
@@ -24,6 +44,7 @@
 			</nav>
 		</div>
 	</header>
+	<!-- =========================first screen===================== -->
 	<div class="main">
 		<div class="container">
 			<div class="row">
@@ -36,7 +57,7 @@
 							йога-туры в индию
 						</div>
 						<div class="main-block-descr">
-							океан / йога / путешествия / аюрведа
+							океан&nbsp;&nbsp;&nbsp;йога &nbsp;&nbsp;&nbsp;путешествия &nbsp;&nbsp;&nbsp;аюрведа
 						</div>
 					</div>
 				</div>
@@ -98,43 +119,55 @@
 							Узнать подробнее
 						</div>
 					</div>
-	<!-- =======================Акция==================== -->
+	
 					<div class="photo">
 						<img src="img/yoga.jpg" alt="yoga">
 					</div>
 				</div>
 			</div>
+	<!-- =======================Акция==================== -->		
 			<div class="timer">
 				<div class="timer-title">Успей забронировать место со скидкой</div>
-				<div class="timer-action">
-					До конца акции осталось
+				<h1 class="countdown-title" id= "countitle">АКИЯ ЗАКОНЧЕНА!</h1>
+				<div id="countdown" class="countdown">
+				  <div class="countdown-number">
+					<span class="days countdown-time"></span>
+					<span class="countdown-text">дней</span>
+				  </div>
+				  <div class="countdown-number">
+					<span class="hours countdown-time"></span>
+					<span class="countdown-text">часов</span>
+				  </div>
+				  <div class="countdown-number">
+					<span class="minutes countdown-time"></span>
+					<span class="countdown-text">минут</span>
+				  </div>
+				  <div class="countdown-number">
+					<span class="seconds countdown-time"></span>
+					<span class="countdown-text">секунд</span>
+				  </div>
 				</div>
-				<div class="timer-numbers" id="timer">
-					<span class="hours">18</span>
-					<span>:</span>
-					<span class="minutes">20</span>
-					<span>:</span>
-					<span class="seconds">11</span>
-				</div>
-			</div>
 			<button class="more"> Узнать больше</button>
 	<!-- =========================СЛАЙДЕР Фото с наших поездок============================= -->
 			<div class="slider" id="photo">
-				<div class="slider-title">Фото с наших поездок
+				<div class="slider-title">Фото из наших поездок
 				</div>
 				<div class="wrap">
 
 					<div class="slider-item fade">
-						<img src="img/slider_1.jpg" alt="slider">
+						<img src="img/1.jpg" alt="slider">
 					</div>
 					<div class="slider-item fade">
-						<img src="img/slider_2.jpg" alt="slider">
+						<img src="img/2.jpg" alt="slider">
 					</div>
 					<div class="slider-item fade">
-						<img src="img/slider_3.jpg" alt="slider">
+						<img src="img/3.jpg" alt="slider">
 					</div>
 					<div class="slider-item fade">
-						<img src="img/slider_4.jpg" alt="slider">
+						<img src="img/4.jpg" alt="slider">
+					</div>
+					<div class="slider-item fade">
+						<img src="img/5.jpg" alt="slider">
 					</div>
 
 					<div class="prev"><div class="arrow-left"></div></div>
@@ -142,6 +175,7 @@
 				</div>
 				<div class="slider-dots">
 					<div class="dot dot-active"></div>
+					<div class="dot"></div>
 					<div class="dot"></div>
 					<div class="dot"></div>
 					<div class="dot"></div>
@@ -224,29 +258,42 @@
 			</div>
 		</footer>
 	</div>
+<copyright>
+	<div class="copy_title">
+
+		<h6>Copyright&#169; Bikbulatov Valery 2020 Ordynskoe. All right reserved. </h6>
+		<br>
+		<br> 
+	</div>
+</copyright>
+
 	<!-- ============================Оверлей для формы обратной связи============================ -->
 	<div class="overlay fade">
-	 		<div class="popup">
-				<div class="popup-close">&times;
+		<div class="popup">
+			<div class="popup-close">&times;
+			</div>
+			<div class="popup-title">
+			Форма обратной связи</div>
+				<div class="popup-form">	
+					<form action="#" class="main-form">
+						<div class="popup-form-header">
+							Узнайте больше о своём отдыхе
+						</div>
+							<label class="popup-form__label" for="phone">
+							Введите ваш номер телефона:
+							</label>
+							<input class="popup-form__input" name="phone" type="tel" required placeholder="+7(978) 973 33 45">
+							<button class="button popup-form__btn">
+								Оставить заявку!
+							</button>
+					</form>
 				</div>
-				<div class="popup-title">
-				Форма обратной связи</div>
-					<div class="popup-form">	
-						<form action="#" class="main-form">
-							<div class="popup-form-header">
-								Узнайте больше о своём отдыхе
-							</div>
-								<label class="popup-form__label" for="phone">
-								Введите ваш номер телефона:
-								</label>
-								<input class="popup-form__input" name="phone" type="tel" required placeholder="+7(978) 973 33 45">
-								<button class="button popup-form__btn">
-									Оставить заявку!
-								</button>
-						</form>
-					</div>
-	 		</div>
-	</div>
-	<script src="js/script.js"></script>
-</body>
+			</div>
+		</div>
+
+		
+
+		<script src="js/script.js"></script>
+<a href="#" class="scrollup">Наверх</a>
+	</body>
 </html>
