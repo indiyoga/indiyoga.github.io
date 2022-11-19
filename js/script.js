@@ -76,7 +76,7 @@ window.addEventListener('DOMContentLoaded', function() {
           if (t.total <= 0) {
             clearInterval(timeinterval);
 			// !!!!!!!!!!!!!!!!!!!!!!!!выставляем дату акции!!!!!!!!!!!!!
-            var deadline = '2021-11-24'
+            var deadline = '2023-11-24'
               
       
           //   new Date(Date.parse(new Date()) + 1600 * 1000);
